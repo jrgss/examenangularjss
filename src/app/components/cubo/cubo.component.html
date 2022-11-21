@@ -1,0 +1,21 @@
+<div *ngIf="cubo">
+    <div class="card" style="width: 18rem;">
+        <img src="{{cubo.imagen}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{cubo.nombre}}</h5>
+          <label>Marca: </label>
+          <h6>{{cubo.marca}}</h6>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        <h4 *ngIf="comentarios">Comentarios:</h4>
+            <ul>
+                <li *ngFor="let comment of comentarios">
+                    {{comment.comentario}}
+                    <p>{{comment.fechaComentario}}</p>
+                </li>
+            </ul>
+
+            <a [routerLink]="['/']"><button class="btn btn-warning">Volver</button></a>
+        </div>
+      </div>
+</div>

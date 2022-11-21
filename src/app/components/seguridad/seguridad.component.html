@@ -1,0 +1,30 @@
+<div *ngIf="opcion==1 && !statusIniciado" >
+    <h1>Log In</h1>
+    <form #createForm="ngForm">
+        <label>Usuario</label>
+        <input type="text" name="cajauserl" #cajauserl />
+        <label>Contraseña</label>
+        <input type="text" name="cajapassl" #cajapassl />
+        <button class="btn btn-success" (click)="inicioSesion()">Log In</button>
+    </form>
+</div>
+<div *ngIf="opcion==2 && !statusIniciado">
+    <h1>Registro</h1>
+    <form #createForm="ngForm">
+        <label>Nombre</label>
+        <input type="text" name="cajauserr" #cajauserr />
+        <label>Email</label>
+        <input type="text" name="cajaemailr" #cajaemailr />
+        <label>Contraseña</label>
+        <input type="text" name="cajapassr" #cajapassr />
+        <label>Repetir contraseña</label>
+        <input type="text" name="cajapassreper" #cajapassreper />
+        <button class="btn btn-success" (click)="registro()">Registro</button>
+    </form>
+</div>
+
+<div *ngIf="statusIniciado" >
+    <a [routerLink]="['/usuario/1']"><button style="margin-right: 1%;" class="btn btn-info">Ver Perfil</button></a>
+    <a [routerLink]="['/usuario/2']"><button style="margin-right: 1%;" class="btn btn-success">Ver mis compras</button></a>
+    <a [routerLink]="['/compra']"> <button style="margin-right: 1%;" class="btn btn-dark">Realizar una compra</button></a>
+</div>

@@ -1,0 +1,30 @@
+<div *ngIf="user">
+    <h2>Perfil de Usuario</h2>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{user.nombre}}</h5>
+          <h6>{{user.email}}</h6>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        </div>
+        <div *ngIf="!compras">
+        <button class="btn btn-info" (click)="getCompras()">Mostrar mis compras</button>
+    </div>
+      </div>
+      <hr/>
+    
+</div>
+
+<div *ngIf="compras">
+    <div *ngFor="let compra of compras" class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Pedido nº: {{compra.idPedido}}</h5>
+          <p class="card-text">Usted ordenó el cubo con id: {{compra.idCubo}} en la fecha: {{compra.fechaPedido}}</p>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        </div>
+      </div>
+      <div *ngIf="!user">
+        <button class="btn btn-warning" (click)="getUser()">Mostrar mi perfil</button>
+    </div>
+    
+</div>
